@@ -1,0 +1,51 @@
+﻿<Window x:Class="Magazyn.OrdersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Magazyn"
+        mc:Ignorable="d"
+        Title="OrdersWindow" Height="450" Width="950" Closing="windowClose">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Canvas Background="#2b2c36" Grid.Row="0" Grid.ColumnSpan="3">
+            <Label Foreground="White" FontSize="18" Margin="7" Content="Zamówienia:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        </Canvas>
+
+        <ListBox FontFamily="Courier New" Margin="15" Grid.Row="1" Grid.Column="2" Name="listboxProducts"></ListBox>
+        <Canvas Grid.Column="0" Grid.Row="1" Background="#24252e"></Canvas>
+        
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Width="180" >
+            <Label Content="Produkt:" Foreground="White" FontSize="15"></Label>
+            <ComboBox Name="comboProducts"></ComboBox>
+            <Label Content="Ilosc:" Foreground="White" FontSize="15"></Label>
+            <TextBox x:Name="txtQuantity" FontSize="20"></TextBox>
+            <Label Name="errorQuan" Foreground="Red"></Label>
+            <Button Height="28" Click="btnAddProduct" Content="Dodaj produkt"></Button>
+            <Label Content="Rabat [%] :" Foreground="White" FontSize="15"></Label>
+            <TextBox Name="txtDiscount" FontSize="20"></TextBox>
+            <Label Name="errorDiscount" Foreground="Red"></Label>
+            <Label Content="Klient:" Foreground="White" FontSize="15"></Label>
+            <ComboBox FontFamily="Courier New" Name="comboClients"></ComboBox>
+            <Label Name="errorEmpty" Foreground="Red"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
+            <Label>Products list to order:</Label>
+            <Label Name="label" FontFamily="Courier New"></Label>
+            <ListBox FontFamily="Courier New" Name="listboxOrders" ></ListBox>
+           
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="1" Click="btnCreateOrder" Height="30" VerticalAlignment="Bottom" Margin="15" Width="180">Dodaj zamówienie</Button>
+
+    </Grid>
+</Window>

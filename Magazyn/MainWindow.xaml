@@ -1,0 +1,46 @@
+﻿<Window x:Class="Magazyn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Magazyn"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas Background="#2b2c36" Grid.Row="0" Grid.ColumnSpan="2">
+               <Label Foreground="White" FontSize="18" Margin="7" Content="Magazyn napojów:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+            
+        </Canvas>
+        <Label Name="labelUser" Foreground="White" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+        <Canvas Grid.Column="0" Grid.Row="1" Background="LightGray"></Canvas>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1">
+            <Button Click="OrdersBtn" Margin="0 30 0 10" Width="120" Height="30">Zamowienia:</Button>
+            <Button Click="CustomersBtn" Margin="10" Width="120" Height="30">Klienci:</Button>
+            <Button Click="RefreshBtn" Margin="10" Width="120" Height="30" Background="Gray">Odśwież</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20">
+            <Label Content="Partie produktów na stanie magazynu:"></Label>
+            <Label FontFamily="Courier New" Name="labelData"></Label>
+            <ListBox FontFamily="Courier New" SelectedIndex="1" Name="listbox" Grid.Row="1" Grid.Column="1"></ListBox>
+            
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Margin="10" Orientation="Horizontal" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+            <Button Click="InfoBtn" Width="80" Margin="5">INFO</Button>
+            <Button Click="DeleteBtn" Width="80" Margin="5">USUŃ</Button>
+            <Button Click="EditBtn" Width="80" Margin="5">EDYCJA</Button>
+            <Label>Sortuj po:</Label>
+            <ComboBox Height="20" SelectionChanged="sort"  Name="comboSort"></ComboBox>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>
